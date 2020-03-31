@@ -16,7 +16,24 @@
 
             <TextBlock FontSize="18">University Directory</TextBlock>
 
-            <ListView Grid.Row="1"/>
+            <ListView Grid.Row="1" Name="ListOfPeople" SelectionMode="Single" SelectionChanged="OnSelectionChanged" 
+                     HorizontalContentAlignment="Stretch" ItemsSource="{Binding}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Path= FirstName}" Grid.Column="0"/>
+                            <TextBlock Text="{Binding Path= LastName}" Grid.Column="1"/>
+                            <TextBlock Text="{Binding Path= ID}" Grid.Column="2"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
 
             <Button Grid.Row="2">Add New Person</Button>
         </Grid>
